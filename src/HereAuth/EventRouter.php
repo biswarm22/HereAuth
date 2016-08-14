@@ -97,7 +97,7 @@ class EventRouter implements Listener{
 					$cond = ($cond and $oldPlayer->getAddress() === $newPlayer->getAddress()); // don't forget these parentheses! :) PHP operator precedence >.<
 				}
 				if($cond){
-					$oldPlayer->kick("Login from the same device", false);
+					$newPlayer->kick("Another player is logged in with same username", false);
 					$this->main->getAuditLogger()->logPush($lowName, $oldPlayer->getAddress(), $newPlayer->getAddress());
 				}else{
 					$event->setCancelled();
